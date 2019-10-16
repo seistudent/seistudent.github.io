@@ -1,1 +1,184 @@
-Hello World
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Cover Template · Bootstrap</title>
+
+    <!-- Link JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Link Javascript Logic -->
+    <script src="app.js" charset="utf-8"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <!-- <link href="cover.css" rel="stylesheet"> -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Movie Trivia!</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a id="home" class="nav-link active" href="#">Home</a>
+        <a id="gameRules" class="nav-link" href="#">Game Rules</a>
+        <a id="gameParameters" class="nav-link" href="#">Set Game Parameters</a>
+      </nav>
+    </div>
+    <br><br><br>
+    <!-- Score Board -->
+    <div class="scoreboard right">
+      <h6 id="p1scoreTitle" class="player activePlayer">Player 1: </h6><h6 id="p1Score" class="player activePlayer">0 points</h6>
+      <br>
+      <h6 id="p2scoreTitle" class="player">Player 2: </h6><h6 id="p2Score" class="player">0 points</h6>
+
+      <!-- Timer -->
+      <br>
+      <br>
+      <div class="scoreboard right">
+        <p>s</p>
+      </div>
+      <div id="timer" class="scoreboard right">
+        <p>[Timer]</p>
+      </div>
+      <div class="scoreboard right">
+        <p>Time Remaining: </p>
+      </div>
+
+      <!-- Round and Movie Status -->
+        <br>
+        <div class="scoreboard right">
+          <h6 id="roundsRemaining">3 rounds to play!</h6> <br>
+          <h6 id="moviesPerRound">10 movies per round!</h6>
+        </div>
+    </div>
+
+      <!-- Rules -->
+    <div class="rules hidden">
+      <br><br><br>
+      <h4>Rules of the Game</h4>
+      <ol>
+        <li>In 60 seconds, see how many trivia answers can you get right!</li>
+        <li>Once you commence the game, you will be given 10 different movie posters.</li>
+        <li>For each movie poster, you are allowed only ONE guess.</li>
+        <li>If you are unsure of an answer, you can skip and come back again later.</li>
+        <li>Click "Home" to go back to the game!</li>
+      </ol>
+      <img class="d-block w-50" src="https://i5.walmartimages.com/asr/8c6de2c6-41d7-4a33-aa7e-ea2f37db428d_1.6b232668aeab06ee601256c62653e7c7.jpeg?odnWidth=450&odnHeight=450&odnBg=ffffff" alt="">
+    </div>
+
+    <!-- Parameters -->
+    <div class="parameters hidden">
+      <br><br><br>
+      <h4>Game Parameters</h4>
+      <ol>
+        <li>Player 1: </li>
+          <input id="player1Param" type="text" placeholder="Player 1"/>
+          <input type="button" class="btn-secondary" id="player1ParamInput" value="Confirmed!" />
+        <br>
+        <li>Player 2: </li>
+          <input id="player2Param" type="text" placeholder="Player 2"/>
+          <input type="button" class="btn-secondary" id="player2ParamInput" value="Confirmed!" />
+        <br>
+        <li>Time Limit: </li>
+          <input id="timeLimit2" type="text" placeholder="60"/>
+          <input type="button" class="btn-secondary" id="timeLimitInput" value="Confirmed!" />
+        <br>
+        <li>Number of Movies: </li>
+          <input id="numberOfMoviesSelected2" type="text" placeholder="10"/>
+          <input type="button" class="btn-secondary" id="numberOfMoviesSelectedInput" value="Confirmed!" />
+        <li>Number of Rounds: </li>
+          <input id="numberOfRounds" type="text" placeholder="3"/>
+          <input type="button" class="btn-secondary" id="numberOfRoundsInput" value="Confirmed!" />
+        <br>
+      </ol>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Battle of the Movie Buffs!</h1>
+    <p class="lead">Pit yourself against your friends, see who's the King of Movies!</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary" id="startGame">Let the Battle begin!</a>
+    </p>
+
+
+    <!-- Carousell of Movie Posters -->
+    <h6 id="currentPlayer" class="activePlayer">Player 1</h6><h6 class="activePlayer"> is playing!</h6>
+    <div id="carouselExampleIndicators" class="carousel-images carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img id="option0" src="" class="d-block w-25" alt="">
+        </div>
+      </div>
+
+      <a class="carousel-control-prev previous" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- For future development: hints and other questions -->
+    <div id="question" class="hidden">
+        <h6>Year of Movie: </h6><h6 id="year"></h6><br>
+        <h6>Awards Won: </h6><h6 id="awards"></h6><br>
+        <h6>Actors: </h6><h6 id="actors"></h6><br>
+    </div>
+
+    <!-- Answer Panel -->
+    <div id="firstQ" class="hidden">
+        <h6>Which year was this movie released?</h6>
+    </div>
+    <form id="answerInputs" class="hidden">
+      <input type="text" placeholder="Are you sure!" id="submitAnswerInput"/>
+      <input type="submit" class="btn-secondary" id="submitAnswer" value="Confirmed!" />
+    </form>
+
+
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    </div>
+  </footer>
+
+
+
+
+
+</div>
+</body>
+</html>
