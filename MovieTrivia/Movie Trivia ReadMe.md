@@ -1,4 +1,4 @@
-# Project Title
+# Movie Trivia!
 
 Welcome to the Movie Trivia game! This is my first stab at building something from scratch using my new-found software skills.
 
@@ -32,7 +32,7 @@ The approach I took was as follows:
 
 ### Link to my live site
 
-//URL
+https://seistudent.github.io/MovieTrivia/
 
 ### Unsolved Problems
 
@@ -43,7 +43,7 @@ In terms of future development, I plan to work on the following features:
 
 
 ## Built With
-* [HTML, CSS, Javascript]
+* HTML, CSS, Javascript
 * [Bootstrap](https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css) - The CSS framework used
 * [jQuery](https://code.jquery.com/jquery-3.3.1.min.js) - For game interactivity
 * [OMDB](http://www.omdbapi.com/) - API for movie data
@@ -55,4 +55,4 @@ In terms of future development, I plan to work on the following features:
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
-* Thanks to my General Assembly Software Engineering Immersive instructors for their guidance
+* Thanks to my General Assembly Software Engineering Immersive instructors (Henry and Bryan) for their guidance!
