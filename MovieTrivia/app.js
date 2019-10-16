@@ -275,7 +275,7 @@ $(() => {
       }
       // ajax call
         $.ajax({
-            url:'http://www.omdbapi.com/?apikey=53aa2cd6&t=' + movieDatabase250[randomSelection]
+            url:'https://www.omdbapi.com/?apikey=53aa2cd6&t=' + movieDatabase250[randomSelection]
         }).then(
             (data)=>{
                 movieSelection.push(data);
