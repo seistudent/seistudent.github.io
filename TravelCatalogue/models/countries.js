@@ -6,9 +6,11 @@ const countriesSchema = mongoose.Schema({
   City: String,
   Date: String,
   Memories: String,
-  Travellers: { type: Schema.Types.ObjectId, ref: "Users" }
+  Travellers: [{ type: Schema.Types.ObjectId, ref: "Users" }]
 });
 
 const Countries = mongoose.model("Countries", countriesSchema);
 
 module.exports = Countries;
+
+// [{ type: Schema.Types.ObjectId, ref: "Users" }]

@@ -28,8 +28,30 @@
         /><br />
         <input type="text" name="City" value="<%=countries.City%>" /><br />
         <input type="text" name="Date" value="<%=countries.Date%>" /><br />
+        Additional Travel Buddies: <br />
+        <select>
+          <% for(let i = 0; i < users.length; i++){ %>
+          <option value="<%=users[i]._id%>">
+            <%=users[i].Name%>
+          </option>
+          <% } %> </select
+        ><br /><br />
+        Memories to record: <br /><textarea
+          name="memories"
+          value="Memories/Notes!"
+        ></textarea
+        ><br /><br />
         <input type="submit" value="Update Travel Record" />
       </form>
+
+      <section>
+        <form
+          action="/countries/<%=countries._id%>?_method=DELETE"
+          method="post"
+        >
+          <input type="submit" value="Delete Travel Memory" />
+        </form>
+      </section>
     </main>
   </body>
 </html>

@@ -23,6 +23,20 @@
         You travelled to <%=countries.City%>, <%=countries.Country%> on
         <%=countries.Date%>
       </section>
+      <br />
+
+      <section>
+        You travelled together with <% for(let i = 0; i <
+        countries.Travellers.length; i++){ %>
+        <p><%= countries.Travellers[i].Name%></p>
+        <% } %>
+      </section>
+      <br /><br />
+      <section>
+        You had the following memories to remember! <br /><br />
+        <%=countries.Memories%>
+      </section>
+      <br /><br />
     </main>
 
     <section>
