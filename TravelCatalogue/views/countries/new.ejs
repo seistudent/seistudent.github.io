@@ -24,12 +24,9 @@
         <input type="text" name="City" value="City" /><br />
         <input type="text" name="Date" value="Date(MM/YYYY)" /><br /><br />
         Additional Travel Buddies: <br />
-        <select name="Travellers">
-          <% for(let i = 0; i < users.length; i++){ %>
-          <option value="<%=users[i]._id%>">
-            <%=users[i].Name%>
-          </option>
-          <% } %> 
+        <% for(let i = 0; i < users.length; i++){ %>
+        <input type="checkbox" name="Travellers" value="<%=users[i]._id%>"><%=users[i].Name%><br>
+         <% } %> 
         </select>
         <br /><br />
         Memories to record: <br /><input type="textarea" name="Memories"></textarea

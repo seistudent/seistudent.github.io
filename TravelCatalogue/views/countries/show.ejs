@@ -26,14 +26,14 @@
       <br />
 
       <section>
-        You travelled together with <% for(let i = 0; i <
-        countries.Travellers.length; i++){ %>
-        <p><%= countries.Travellers[i].Name%></p>
+        You travelled together with: <br />
+        <% for(let i = 0; i < countries.Travellers.length; i++){ %>
+        <p><%=i+1%>) <%= countries.Travellers[i].Name%></p>
         <% } %>
       </section>
-      <br /><br />
+      <br />
       <section>
-        You had the following memories to remember! <br /><br />
+        You wanted to remember the following memories: <br /><br />
         <%=countries.Memories%>
       </section>
       <br /><br />
