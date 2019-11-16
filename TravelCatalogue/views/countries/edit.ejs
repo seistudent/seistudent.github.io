@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Edit <%=countries.title%>'s Info</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/articles">Countries Index</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Countries Attributes:</h2>
+      <form action="/articles/<%=article._id%>?_method=PUT" method="post">
+        <input
+          type="text"
+          name="Country"
+          value="<%=countries.Country%>"
+        /><br />
+        <input type="text" name="City" value="<%=countries.City%>" /><br />
+        <input type="text" name="Date" value="<%=countries.Date%>" /><br />
+        <input type="submit" value="Update Article" />
+      </form>
+    </main>
+  </body>
+</html>
