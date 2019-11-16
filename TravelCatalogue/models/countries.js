@@ -5,8 +5,8 @@ const countriesSchema = mongoose.Schema({
   Country: String,
   City: String,
   Date: String,
-  Memories: String
-  // user: { type: Schema.Types.ObjectId, ref: "user" }
+  Memories: String,
+  Travellers: { type: Schema.Types.ObjectId, ref: "Users" }
 });
 
 const Countries = mongoose.model("Countries", countriesSchema);

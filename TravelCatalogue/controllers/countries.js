@@ -9,8 +9,14 @@ router.get("/", (req, res) => {
   });
 });
 
+const Users = require("../models/users.js");
+
 router.get("/new", (req, res) => {
-  res.render("countries/new.ejs");
+  Users.find({}, (err, foundUsers) => {
+    res.render("countries/new.ejs", {
+      users: foundUsers
+    });
+  });
 });
 
 const Countries = require("../models/countries.js");
@@ -45,7 +51,7 @@ router.put("/:id", (req, res) => {
 //avoid this handling /new by placing it towards the bottom of the file
 router.get("/:id", (req, res) => {
   Countries.findById(req.params.id)
-    .populate("author")
+    .populate("Users")
     .exec((error, foundCountries) => {
       //dynamically switch out any ids with the objects they reference
       console.log(foundCountries);

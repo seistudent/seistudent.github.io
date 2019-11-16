@@ -23,11 +23,18 @@
         <input type="text" name="Country" value="Country" /><br />
         <input type="text" name="City" value="City" /><br />
         <input type="text" name="Date" value="Date(DD/MM/YYYY)" /><br />
+        <select>
+          <% for(let i = 0; i < users.length; i++){ %>
+          <option>
+            <%=users[i].Name%>
+          </option>
+          <% } %> </select
+        ><br /><br />
         Memories to record: <br /><textarea
           name="memories"
           value="Memories/Notes!"
         ></textarea
-        ><br />
+        ><br /><br />
         <input type="submit" value="Submit Travel Record" />
       </form>
     </main>
