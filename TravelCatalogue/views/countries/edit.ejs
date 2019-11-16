@@ -13,14 +13,14 @@
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/articles">Countries Index</a>
+            <a href="/countries">Countries Index</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
       <h2>Countries Attributes:</h2>
-      <form action="/articles/<%=article._id%>?_method=PUT" method="post">
+      <form action="/countries/<%=countries._id%>?_method=PUT" method="post">
         <input
           type="text"
           name="Country"
@@ -28,7 +28,7 @@
         /><br />
         <input type="text" name="City" value="<%=countries.City%>" /><br />
         <input type="text" name="Date" value="<%=countries.Date%>" /><br />
-        <input type="submit" value="Update Article" />
+        <input type="submit" value="Update Travel Record" />
       </form>
     </main>
   </body>

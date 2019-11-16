@@ -6,26 +6,27 @@
   </head>
   <body>
     <header>
-      <h1><%=article.title%></h1>
+      <h1><%=countries.Country%></h1>
       <nav>
         <ul>
           <li>
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/articles">Articles Index</a>
+            <a href="/countries">Travel Record</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
       <section>
-        <%=article.body%> - <%=article.author.name%>
+        You travelled to <%=countries.City%>, <%=countries.Country%> on
+        <%=countries.Date%>
       </section>
     </main>
 
     <section>
-      <a href="/articles/<%=article._id%>/edit">Edit</a>
+      <a href="/countries/<%=countries._id%>/edit">Edit</a>
     </section>
   </body>
 </html>

@@ -6,24 +6,29 @@
   </head>
   <body>
     <header>
-      <h1>Create an Article</h1>
+      <h1>Create a new Country Visited Record!</h1>
       <nav>
         <ul>
           <li>
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/articles">Articles Index</a>
+            <a href="/countries">Countries Visited Index</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <form action="/articles" method="post">
-        <input type="text" name="title" /><br />
-        <textarea name="body"></textarea><br />
-        <input type="text" value="Author" /><br />
-        <input type="submit" value="Publish Article" />
+      <form action="/countries" method="post">
+        <input type="text" name="Country" value="Country" /><br />
+        <input type="text" name="City" value="City" /><br />
+        <input type="text" name="Date" value="Date(DD/MM/YYYY)" /><br />
+        Memories to record: <br /><textarea
+          name="memories"
+          value="Memories/Notes!"
+        ></textarea
+        ><br />
+        <input type="submit" value="Submit Travel Record" />
       </form>
     </main>
   </body>

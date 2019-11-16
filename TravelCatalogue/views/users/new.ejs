@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		<header>
-			<h1>Create an Author</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/authors">Authors Index</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<main>
-			<form action="/authors" method="POST">
-				<input type="text" name="name" />
-			</form>
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Create a new Traveller!</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/users">Travellers Index</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="/users" method="post">
+        <input type="text" name="Name" value="Name" /><br />
+        <input type="submit" value="Submit Traveller Details" />
+      </form>
+    </main>
+  </body>
 </html>

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  Countries.find({}, (err, foundArticles) => {
+  Countries.find({}, (err, foundCountries) => {
     res.render("countries/index.ejs", {
       countries: foundCountries
     });
@@ -44,17 +44,11 @@ router.put("/:id", (req, res) => {
 
 //avoid this handling /new by placing it towards the bottom of the file
 router.get("/:id", (req, res) => {
-  // Article.findById(req.params.id, (err, foundCountries)=>{
-  // 	res.render('countries/show.ejs', {
-  // 		countries: foundCountries
-  // 	});
-  // });
-
   Countries.findById(req.params.id)
     .populate("author")
     .exec((error, foundCountries) => {
       //dynamically switch out any ids with the objects they reference
-      console.log(foundArticle);
+      console.log(foundCountries);
       res.render("countries/show.ejs", {
         countries: foundCountries
       });

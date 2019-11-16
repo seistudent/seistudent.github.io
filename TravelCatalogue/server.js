@@ -10,7 +10,7 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
 
-// const usersController = require('./controllers/users.js');
+const usersController = require("./controllers/users.js");
 const countriesController = require("./controllers/countries.js");
 
 //middleware
@@ -20,8 +20,8 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 
 // Use contollers
-// app.use("/authors", usersController);
-app.use("/articles", countriesController);
+app.use("/users", usersController);
+app.use("/countries", countriesController);
 
 app.get("/", (req, res) => {
   res.render("index.ejs");

@@ -6,35 +6,33 @@
   </head>
   <body>
     <header>
-      <h1>Show Page for <%=author.name%></h1>
+      <h1>Show Page for <%=users.name%></h1>
       <nav>
         <ul>
           <li>
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/authors">Author Index</a>
+            <a href="/users">Traveller Index</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-            
-        <section>
-            <a href="/authors/<%=author._id%>/edit">Edit</a>
-        </section>
-
+      <section>
+        <a href="/users/<%=users._id%>/edit">Edit</a>
+      </section>
 
       <section>
-        <h2>Author Attributes:</h2>
+        <h2>Traveller Attributes:</h2>
         <ul>
-          <li>Name: <%=author.name%></li>
+          <li>Name: <%=users.Name%></li>
         </ul>
       </section>
 
       <section>
-        <form action="/authors/<%=author._id%>?_method=DELETE" method="post">
-          <input type="submit" value="Delete Author" />
+        <form action="/users/<%=users._id%>?_method=DELETE" method="post">
+          <input type="submit" value="Delete Traveller" />
         </form>
       </section>
     </main>
