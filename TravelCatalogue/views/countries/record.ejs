@@ -1,0 +1,139 @@
+  <!--Import Google Icon Font-->
+  <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<!-- Compiled and minified CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Countries Visited</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/countries/new">Create a new Country Record</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>List of Countries Visited</h2>
+      <ul>
+        <% for(let i = 0; i < countries.length; i++){ %>
+        <li>
+          <a href="/countries/<%=countries[i]._id%>"
+            ><%=countries[i].country%></a
+          >
+        </li>
+        <% } %>
+      </ul>
+    </main>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Country Record</title>
+  </head>
+  <body>
+    <header>
+      <h1><%=countries.Country%></h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/countries">Travel Record</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <br />
+        You travelled to <%=countries.city%>, <%=countries.country%> on
+        <%=countries.date%>
+      </section>
+      <br />
+
+      <section>
+        You travelled together with: <br />
+        <% for(let i = 0; i < countries.travellers.length; i++){ %>
+        <p><%=i+1%>) <%= countries.travellers[i].name%></p>
+        <% } %>
+      </section>
+      <br />
+      <section>
+        You wanted to remember the following memories: <br /><br />
+        <%=countries.memories%>
+      </section>
+      <br /><br />
+    </main>
+
+    <section>
+      <a href="/countries/<%=countries._id%>/edit">Edit</a>
+    </section>
+  </body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Create a new Country Visited Record!</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/countries">Countries Visited Index</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="/countries" method="post">
+        <input type="text" name="country" value="Country" /><br />
+        <input type="text" name="city" value="City" /><br />
+        <input type="text" name="date" value="Date(MM/YYYY)" /><br /><br />
+        Additional Travel Buddies: <br />
+        <% for(let i = 0; i < users.length; i++){ %>
+        <input type="checkbox" name="travellers" value="<%=users[i]._id%>"><%=users[i].name%><br>
+         <% } %> 
+        </select>
+        <br /><br />
+        Memories to record: <br /><input type="textarea" name="memories"></textarea
+        ><br /><br />
+        <input type="submit" value="Submit Travel Record" />
+      </form>
+    </main>
+  </body>
+</html>

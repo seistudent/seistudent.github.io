@@ -1,5 +1,7 @@
+const bcrypt = require("bcrypt");
 const express = require("express");
 const router = express.Router();
+const Users = require("../models/users.js");
 
 router.get("/", (req, res) => {
   Users.find({}, (err, foundUsers) => {
@@ -13,12 +15,25 @@ router.get("/new", (req, res) => {
   res.render("users/new.ejs");
 });
 
-const Users = require("../models/users.js");
-//...
-//...farther down the page
+// router.post("/", (req, res) => {
+//   Users.create(req.body, (err, createdUsers) => {
+//     res.redirect("/users");
+//   });
+// });
+
 router.post("/", (req, res) => {
-  Users.create(req.body, (err, createdUsers) => {
-    res.redirect("/users");
+  console.log("users POST password:" + req.body.password);
+  req.body.password = bcrypt.hashSync(
+    req.body.password,
+    bcrypt.genSaltSync(10)
+  );
+  Users.create(req.body, (err, createdUser) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(createdUser);
+    // once user is created redirect back to 'welcome page'
+    res.redirect("/");
   });
 });
 

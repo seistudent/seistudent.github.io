@@ -33,17 +33,15 @@ app.use(
   })
 );
 
-const usersController = require("./controllers/users.js");
-const countriesController = require("./controllers/countries.js");
+app.use(express.static(__dirname + "/"));
 
-//middleware
-// allows us to use put and delete methods
-app.use(methodOverride("_method"));
-//body parser
-app.use(express.urlencoded({ extended: false }));
+const usersController = require("./controllers/users.js");
+const sessionsController = require("./controllers/sessions.js");
+const countriesController = require("./controllers/countries.js");
 
 // Use contollers
 app.use("/users", usersController);
+app.use("/sessions", sessionsController);
 app.use("/countries", countriesController);
 
 app.get("/", (req, res) => {

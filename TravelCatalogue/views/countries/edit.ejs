@@ -1,55 +1,148 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
-  </head>
-  <body>
-    <header>
-      <h1>Edit <%=countries.title%>'s Info</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/countries">Countries Index</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <h2>Countries Attributes:</h2>
-      <form action="/countries/<%=countries._id%>?_method=PUT" method="post">
-        <input
-          type="text"
-          name="Country"
-          value="<%=countries.Country%>"
-        /><br />
-        <input type="text" name="City" value="<%=countries.City%>" /><br />
-        <input type="text" name="Date" value="<%=countries.Date%>" /><br /><br>
-        Additional Travel Buddies: <br />
-        <% for(let i = 0; i < users.length; i++){ %>
-        <input type="checkbox" name="Travellers" value="<%=users[i]._id%>"><%=users[i].Name%><br>
-         <% } %> 
-        </select>
-        <br />
-        Memories to record: <br /><textarea
-          name="memories"
-          value="Memories/Notes!"
-        ></textarea
-        ><br /><br />
-        <input type="submit" value="Update Travel Record" />
-      </form>
+<html lang="en">
+  <!-- Head  -->
 
-      <section>
-        <form
-          action="/countries/<%=countries._id%>?_method=DELETE"
-          method="post"
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+    <!-- CSS  -->
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="/css/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="/css/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+
+  <!-- Body  -->
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">Edit <%=countries.title%>'s Info</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/countries">Travel</a></li>
+            <li><a href="/countries/new">New Memory</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/countries">Travel</a></li>
+            <li><a href="/countries/new">New Memory</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
         >
-          <input type="submit" value="Delete Travel Memory" />
-        </form>
-      </section>
-    </main>
+      </div>
+    </nav>
+
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br /><br />
+          <h1 class="header center teal-text text-lighten-2">
+            Capturing your Travel Adventures
+          </h1>
+          <div class="row center">
+            <h5 class="header col s12 light">
+              A record of the wonderful memories shared with family and friends
+            </h5>
+          </div>
+          <div class="row center">
+            <a
+              href="/countries/new"
+              id="download-button"
+              class="btn-large waves-effect waves-light teal lighten-1"
+              >Add a New Memory</a
+            >
+          </div>
+          <br /><br />
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="/assets/background1.jpg" alt="Unsplashed background img 1" />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+          <h5>Edit your memory!</h5><br>
+            <form action="/countries" method="post">
+              <input type="text" name="country" placeholder="<%=countries.country%>" /><br />
+              <input type="text" name="city" placeholder="<%=countries.city%>" /><br />
+              <input type="text" name="date" placeholder="<%=countries.date%>" /><br /><br />
+              <h6>Additional Travel Buddies: </h6>
+              <% for(let i = 0; i < users.length; i++){ %>
+
+  
+              <label>
+                  <input type="checkbox" name="travellers" value="<%=users[i]._id%>">
+                  <span><%=users[i].name%></span><br>
+              </label>
+
+
+              <% } %> 
+              </select>
+
+              <br />
+              Memories to record: <br /><textarea input type="text" placeholder="<%=countries.memories%>"></textarea
+              ><br /><br />
+              <input type="submit" value="Submit Edits" />
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer teal">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">About us</h5>
+            <p class="grey-text text-lighten-4">
+              This is a project to document my travel memories. Travel opens
+              your mind, and this is a platform to retain those memories, and to
+              share those records with your family and loved ones.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          Made by
+          <a class="brown-text text-lighten-3" href="http://materializecss.com"
+            >Materialize</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script src="/js/init.js"></script>
   </body>
 </html>

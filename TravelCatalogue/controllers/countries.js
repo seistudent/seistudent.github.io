@@ -3,9 +3,13 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   Countries.find({}, (err, foundCountries) => {
-    res.render("countries/index.ejs", {
-      countries: foundCountries
-    });
+    if (req.session.currentUser) {
+      res.render("countries/index.ejs", {
+        countries: foundCountries
+      });
+    } else {
+      res.redirect("/sessions/new");
+    }
   });
 });
 
@@ -63,7 +67,7 @@ router.put("/:id", (req, res) => {
 //avoid this handling /new by placing it towards the bottom of the file
 router.get("/:id", (req, res) => {
   Countries.findById(req.params.id)
-    .populate("Travellers")
+    .populate("travellers")
     .exec((error, foundCountries) => {
       //dynamically switch out any ids with the objects they reference
       console.log(foundCountries);
