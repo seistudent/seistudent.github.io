@@ -5,7 +5,8 @@ router.get("/", (req, res) => {
   Countries.find({}, (err, foundCountries) => {
     if (req.session.currentUser) {
       res.render("countries/index.ejs", {
-        countries: foundCountries
+        countries: foundCountries,
+        user: req.session.currentUser
       });
     } else {
       res.redirect("/sessions/new");
@@ -18,7 +19,8 @@ const Users = require("../models/users.js");
 router.get("/new", (req, res) => {
   Users.find({}, (err, foundUsers) => {
     res.render("countries/new.ejs", {
-      users: foundUsers
+      users: foundUsers,
+      user: req.session.currentUser
     });
   });
 });
@@ -70,7 +72,7 @@ router.get("/:id", (req, res) => {
     .populate("travellers")
     .exec((error, foundCountries) => {
       //dynamically switch out any ids with the objects they reference
-      console.log(foundCountries);
+      // console.log(foundCountries);
       res.render("countries/show.ejs", {
         countries: foundCountries
       });

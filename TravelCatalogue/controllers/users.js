@@ -3,11 +3,25 @@ const express = require("express");
 const router = express.Router();
 const Users = require("../models/users.js");
 
+// router.get("/", (req, res) => {
+//   Users.find({}, (err, foundUsers) => {
+//     res.render("users/index.ejs", {
+//       users: foundUsers,
+//       user: req.session.currentUser
+//     });
+//   });
+// });
+
 router.get("/", (req, res) => {
   Users.find({}, (err, foundUsers) => {
-    res.render("users/index.ejs", {
-      users: foundUsers
-    });
+    if (req.session.currentUser) {
+      res.render("users/index.ejs", {
+        users: foundUsers,
+        user: req.session.currentUser
+      });
+    } else {
+      res.redirect("/sessions/new");
+    }
   });
 });
 
